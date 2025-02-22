@@ -1,11 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=https://d1tm91r4ytbt54.cloudfront.net/b93894a7-b29b-4edc-8866-c733ff7d695b/1671689486925/retrobowl/index.html">
-  <title>Redirecting to Retro Bowl</title>
+  <title>Retro Bowl Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+    #gameCanvas {
+      background-color: #000;
+      margin: auto;
+      display: block;
+      width: 800px;
+      height: 600px;
+    }
+  </style>
 </head>
 <body>
-  <p>If you are not redirected automatically, <a href="https://d1tm91r4ytbt54.cloudfront.net/b93894a7-b29b-4edc-8866-c733ff7d695b/1671689486925/retrobowl/index.html">click here</a>.</p>
+  <h1>Welcome to Retro Bowl!</h1>
+  <canvas id="gameCanvas"></canvas>
+  <script>
+    // Get the canvas element and its drawing context
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    // Function to draw a simple football field
+    function drawField() {
+      // Fill the background with green (like a football field)
+      ctx.fillStyle = 'green';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // Draw white yard lines every 50 pixels
+      ctx.strokeStyle = 'white';
+      for(let i = 0; i < canvas.width; i += 50) {
+        ctx.beginPath();
+        ctx.moveTo(i, 0);
+        ctx.lineTo(i, canvas.height);
+        ctx.stroke();
+      }
+      
+      // Draw a brown football in the center
+      ctx.fillStyle = 'brown';
+      ctx.beginPath();
+      ctx.arc(canvas.width / 2, canvas.height / 2, 20, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    
+    // Call the function to draw the field
+    drawField();
+    
+    // You can add more game code here!
+  </script>
 </body>
 </html>
